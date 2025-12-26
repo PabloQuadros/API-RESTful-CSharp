@@ -1,0 +1,6 @@
+@ApiRestfulCSharp.Api_HostAddress = http://localhost:5016
+
+GET {{ApiRestfulCSharp.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
