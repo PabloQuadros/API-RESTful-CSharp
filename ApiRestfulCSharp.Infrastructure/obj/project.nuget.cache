@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yDSVq5JofTQ=",
+  "dgSpecHash": "JQfhXP2BxMY=",
   "success": true,
   "projectFilePath": "C:\\Projetos\\ApiRestfulCSharp\\ApiRestfulCSharp.Infrastructure\\ApiRestfulCSharp.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pablo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.1\\microsoft.extensions.dependencyinjection.abstractions.10.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
