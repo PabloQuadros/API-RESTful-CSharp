@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiRestfulCSharp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3bb0c7eddff7e9bef38158b6a07999fe498600b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c8888695cad702c26649cee43900bc62ff90069")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiRestfulCSharp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiRestfulCSharp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
