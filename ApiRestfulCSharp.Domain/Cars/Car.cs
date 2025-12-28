@@ -7,16 +7,18 @@ public sealed class Car
     public string Model { get; private set; }
     public string Color { get; private set; }
     public int Year { get; private set; }
+    public string Currency { get; private set; }
     public decimal Price { get; private set; }
 
 
-    public Car(string brand, string model, string color, int year, decimal price)
+    public Car(string brand, string model, string color, int year, string currency ,decimal price)
     {
         Id = Guid.NewGuid();
         Brand = brand;
         Model = model;
         Color = color;
         Year = year;
+        Currency = currency;
         Price = price;
 
         Validate();
@@ -35,7 +37,10 @@ public sealed class Car
         
         if (Year < 1886 || Year > DateTime.Now.Year + 1)
             throw new ArgumentException("The year must be later than 1886 and consistent with the current one.");
-
+    
+        if (string.IsNullOrWhiteSpace(Currency))
+            throw new ArgumentException("Currency is mandatory.");
+        
         if (Price < 0)
             throw new ArgumentException("The price cannot be negative.");
     }

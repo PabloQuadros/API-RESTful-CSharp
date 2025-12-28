@@ -7,5 +7,7 @@ public sealed record CreateCarCommand(
     string Model,
     string Color,
     int Year,
+    string Currency,
     decimal Price
+
 ) : IRequest<CreateCarCommandResponse>;

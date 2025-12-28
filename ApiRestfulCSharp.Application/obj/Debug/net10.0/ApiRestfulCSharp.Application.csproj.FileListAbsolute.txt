@@ -1,0 +1,16 @@
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\bin\Debug\net10.0\ApiRestfulCSharp.Application.deps.json
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\bin\Debug\net10.0\ApiRestfulCSharp.Application.dll
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\bin\Debug\net10.0\ApiRestfulCSharp.Application.pdb
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\bin\Debug\net10.0\ApiRestfulCSharp.Domain.dll
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\bin\Debug\net10.0\ApiRestfulCSharp.Domain.pdb
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.csproj.AssemblyReference.cache
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.AssemblyInfoInputs.cache
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.AssemblyInfo.cs
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.csproj.CoreCompileInputs.cache
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.sourcelink.json
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestf.AB0CB13B.Up2Date
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.dll
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\refint\ApiRestfulCSharp.Application.dll
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ApiRestfulCSharp.Application.pdb
+C:\Projetos\ApiRestfulCSharp\ApiRestfulCSharp.Application\obj\Debug\net10.0\ref\ApiRestfulCSharp.Application.dll

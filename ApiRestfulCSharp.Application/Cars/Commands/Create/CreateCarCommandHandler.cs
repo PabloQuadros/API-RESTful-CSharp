@@ -19,6 +19,7 @@ public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreateC
             request.Model,
             request.Color,
             request.Year,
+            request.Currency,
             request.Price
         );
         
