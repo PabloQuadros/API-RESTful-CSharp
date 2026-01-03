@@ -1,5 +1,9 @@
 ﻿using ApiRestfulCSharp.Application.Cars;
+using ApiRestfulCSharp.Application.Common;
 using ApiRestfulCSharp.Domain.Cars;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using ApiRestfulCSharp.Infrastructure.Extensions;
 
 namespace ApiRestfulCSharp.Infrastructure.Repositories;
 
@@ -7,7 +11,27 @@ public class CarRepository : ICarRepository
 {
     private readonly List<Car> _cars = new();
 
-    public List<Car> GetAll() => _cars;
+    public (List<Car> Items, int TotalCount) GetAll(
+        int page, 
+        int pageSize, 
+        string? brand, 
+        string? sortBy, 
+        bool isDescending)
+    {
+        var query = _cars.AsQueryable();
+        
+        query = query
+            .ApplyFiltering(brand)
+            .ApplySorting(sortBy, isDescending);
+        
+        var totalCount = query.Count();
+
+        var items = query
+            .ApplyPaging(page, pageSize)
+            .ToList();
+
+        return (items, totalCount);
+    }
 
     public Car? GetById(Guid id) => _cars.FirstOrDefault(c => c.Id == id);
 

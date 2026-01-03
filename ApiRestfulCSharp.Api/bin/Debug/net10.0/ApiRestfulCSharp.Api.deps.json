@@ -204,7 +204,8 @@
       },
       "ApiRestfulCSharp.Infrastructure/1.0.0": {
         "dependencies": {
-          "ApiRestfulCSharp.Application": "1.0.0"
+          "ApiRestfulCSharp.Application": "1.0.0",
+          "AutoMapper": "12.0.1"
         },
         "runtime": {
           "ApiRestfulCSharp.Infrastructure.dll": {

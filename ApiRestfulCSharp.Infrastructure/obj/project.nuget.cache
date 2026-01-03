@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dsc+96AsEMg=",
+  "dgSpecHash": "Q4NqQJS8GF0=",
   "success": true,
   "projectFilePath": "C:\\Projetos\\ApiRestfulCSharp\\ApiRestfulCSharp.Infrastructure\\ApiRestfulCSharp.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pablo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\pablo\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\pablo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\pablo\\.nuget\\packages\\mediatr\\14.0.0\\mediatr.14.0.0.nupkg.sha512",

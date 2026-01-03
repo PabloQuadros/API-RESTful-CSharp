@@ -1,5 +1,6 @@
 ﻿using ApiRestfulCSharp.Api.Controllers.Cars.Requests;
 using ApiRestfulCSharp.Application.Cars.Commands.Create;
+using ApiRestfulCSharp.Application.Cars.Queries.GetAll;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -26,5 +27,13 @@ public class CarsController : ControllerBase
         var response = await _mediator.Send(command);
         
         return Ok(response); 
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAll([FromQuery] GetAllCarsQuery query)
+    {
+        var result = await _mediator.Send(query);
+        
+        return Ok(result);
     }
 }

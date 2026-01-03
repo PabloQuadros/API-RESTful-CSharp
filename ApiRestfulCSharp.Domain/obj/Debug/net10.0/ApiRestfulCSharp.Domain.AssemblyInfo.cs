@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiRestfulCSharp.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9d47f4130f9365ca7f7f9dd38a7277f094f37af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ba3c9eea8433c8337411ec4f4117574062be178")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiRestfulCSharp.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiRestfulCSharp.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

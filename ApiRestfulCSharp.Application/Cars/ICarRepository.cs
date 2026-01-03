@@ -1,10 +1,16 @@
-﻿using ApiRestfulCSharp.Domain.Cars;
+﻿using ApiRestfulCSharp.Application.Common;
+using ApiRestfulCSharp.Domain.Cars;
 
 namespace ApiRestfulCSharp.Application.Cars;
 
 public interface ICarRepository
 {
-    List<Car> GetAll();
+    (List<Car> Items, int TotalCount) GetAll(
+        int page, 
+        int pageSize, 
+        string? brand, 
+        string? sortBy, 
+        bool isDescending);
     Car? GetById(Guid id);
     void Add(Car car);
     void Update(Car car);

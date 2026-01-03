@@ -12,7 +12,7 @@ public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreateC
         _repository = repository;
     }
 
-    public async Task<CreateCarCommandResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
+    public Task<CreateCarCommandResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
     {
         var car = new Car(
             request.Brand,
@@ -24,7 +24,7 @@ public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreateC
         );
         
         _repository.Add(car);
-        
-        return new CreateCarCommandResponse(car.Id);
+
+        return Task.FromResult(new CreateCarCommandResponse(car.Id));
     }
 }
