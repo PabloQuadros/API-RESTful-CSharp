@@ -1,6 +1,8 @@
 ﻿using ApiRestfulCSharp.Api.Controllers.Cars.Requests;
+using ApiRestfulCSharp.Api.Controllers.Cars.Responses;
 using ApiRestfulCSharp.Application.Cars.Commands.Create;
 using ApiRestfulCSharp.Application.Cars.Queries.GetAll;
+using ApiRestfulCSharp.Application.Cars.Queries.GetById;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -35,5 +37,32 @@ public class CarsController : ControllerBase
         var result = await _mediator.Send(query);
         
         return Ok(result);
+    }
+    
+    [HttpGet("v1/{id}")]
+    public async Task<IActionResult> GetByIdV1(Guid id)
+    {
+        var query = new GetByIdCarQuery(id);
+    
+        var result = await _mediator.Send(query);
+
+        if (result == null) return NotFound();
+
+        var summary = _mapper.Map<GetByIdCarResponse>(result);
+
+        return Ok(summary);
+    }
+
+    [HttpGet("v2/{id}")]
+    public async Task<IActionResult> GetByIdV2(Guid id)
+    {
+        var query = new GetByIdCarQuery(id);
+    
+        var result = await _mediator.Send(query);
+
+        if (result == null) return NotFound();
+        
+        var response  = _mapper.Map<GetByIdCarV2Response>(result);
+        return Ok(response);
     }
 }

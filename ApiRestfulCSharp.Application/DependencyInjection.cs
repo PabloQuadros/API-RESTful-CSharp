@@ -11,7 +11,9 @@ public static class DependencyInjection
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         var myAssembly = Assembly.GetExecutingAssembly();
-
+        
+        services.AddAutoMapper(myAssembly);
+        
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssembly(myAssembly);

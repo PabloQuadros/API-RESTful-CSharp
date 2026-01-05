@@ -1,5 +1,6 @@
 ﻿using ApiRestfulCSharp.Application.Common;
 using ApiRestfulCSharp.Domain.Cars;
+using AutoMapper;
 using MediatR;
 
 namespace ApiRestfulCSharp.Application.Cars.Queries.GetAll;
@@ -7,10 +8,12 @@ namespace ApiRestfulCSharp.Application.Cars.Queries.GetAll;
 public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, PaginatedResult<GetAllCarsQueryResponse>>
 {
     private readonly ICarRepository _repository;
+    private readonly IMapper _mapper;
 
-    public GetAllCarsQueryHandler(ICarRepository repository)
+    public GetAllCarsQueryHandler(ICarRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
     public Task<PaginatedResult<GetAllCarsQueryResponse>> Handle(
@@ -24,14 +27,7 @@ public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, Paginated
             request.SortBy,
             request.IsDescending);
 
-        var responseItems = cars.Select(c => new GetAllCarsQueryResponse(
-            c.Id,
-            c.Brand,
-            c.Model,
-            c.Color,
-            c.Price,
-            c.Year
-        )).ToList();
+        var responseItems = _mapper.Map<List<GetAllCarsQueryResponse>>(cars);
         
         var result = new PaginatedResult<GetAllCarsQueryResponse>(
             responseItems, 

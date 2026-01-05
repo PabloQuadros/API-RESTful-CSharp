@@ -4,7 +4,8 @@ public record GetAllCarsQueryResponse(
     Guid Id, 
     string Brand, 
     string Model, 
-    string Color, 
+    string Color,
+    string Currency,
     decimal Price, 
     int Year
     );
