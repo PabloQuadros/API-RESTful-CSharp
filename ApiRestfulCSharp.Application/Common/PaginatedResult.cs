@@ -1,6 +1,6 @@
 ﻿namespace ApiRestfulCSharp.Application.Common;
 
-public class PaginatedResult<T>
+public abstract class PaginatedResult<T>
 {
     public List<T> Items { get; set; }
     public int TotalCount { get; set; }

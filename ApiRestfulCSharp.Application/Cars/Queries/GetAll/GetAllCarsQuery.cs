@@ -10,4 +10,4 @@ public record GetAllCarsQuery(
     string? Brand = null, 
     string? SortBy = "Year",
     bool IsDescending = false
-) : IRequest<PaginatedResult<GetAllCarsQueryResponse>>;
+) : IRequest<GetAllCarsQueryResponse>;

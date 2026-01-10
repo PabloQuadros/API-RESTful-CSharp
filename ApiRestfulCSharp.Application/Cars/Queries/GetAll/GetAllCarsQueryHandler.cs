@@ -5,7 +5,7 @@ using MediatR;
 
 namespace ApiRestfulCSharp.Application.Cars.Queries.GetAll;
 
-public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, PaginatedResult<GetAllCarsQueryResponse>>
+public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, GetAllCarsQueryResponse>
 {
     private readonly ICarRepository _repository;
     private readonly IMapper _mapper;
@@ -16,7 +16,7 @@ public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, Paginated
         _mapper = mapper;
     }
 
-    public Task<PaginatedResult<GetAllCarsQueryResponse>> Handle(
+    public Task<GetAllCarsQueryResponse> Handle(
         GetAllCarsQuery request, 
         CancellationToken cancellationToken)
     {
@@ -27,9 +27,9 @@ public class GetAllCarsQueryHandler : IRequestHandler<GetAllCarsQuery, Paginated
             request.SortBy,
             request.IsDescending);
 
-        var responseItems = _mapper.Map<List<GetAllCarsQueryResponse>>(cars);
+        var responseItems = _mapper.Map<List<GetAllCarsQueryResponseDto>>(cars);
         
-        var result = new PaginatedResult<GetAllCarsQueryResponse>(
+        var result = new GetAllCarsQueryResponse(
             responseItems, 
             totalCount, 
             request.Page, 
