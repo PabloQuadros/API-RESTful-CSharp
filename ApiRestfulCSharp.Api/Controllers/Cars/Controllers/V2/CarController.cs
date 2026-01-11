@@ -22,6 +22,8 @@ public class CarsController : ControllerBase
     }
 
     [HttpGet("/{id}")]
+    [ProducesResponseType(typeof(GetByIdCarV2Response), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetByIdV2(Guid id)
     {
         var query = new GetByIdCarQuery(id);

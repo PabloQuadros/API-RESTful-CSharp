@@ -14,5 +14,5 @@ public interface ICarRepository
     Car? GetById(Guid id);
     void Add(Car car);
     void Update(Car car);
-    void Delete(Guid id);
+    void Delete(Car car);
 }

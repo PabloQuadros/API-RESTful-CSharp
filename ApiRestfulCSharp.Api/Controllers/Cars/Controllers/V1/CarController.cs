@@ -1,6 +1,7 @@
 ﻿using ApiRestfulCSharp.Api.Controllers.Cars.Requests;
 using ApiRestfulCSharp.Api.Controllers.Cars.Responses;
 using ApiRestfulCSharp.Application.Cars.Commands.Create;
+using ApiRestfulCSharp.Application.Cars.Commands.Delete;
 using ApiRestfulCSharp.Application.Cars.Queries.GetAll;
 using ApiRestfulCSharp.Application.Cars.Queries.GetById;
 using Asp.Versioning;
@@ -25,12 +26,14 @@ public class CarsController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create(CreateCarRequest request)
     {
         var command = _mapper.Map<CreateCarCommand>(request);
         var response = await _mediator.Send(command);
         
-        return Ok(response); 
+        return CreatedAtAction(nameof(GetByIdV1), new { id = response }, response); 
     }
     
     [HttpGet]
@@ -42,6 +45,8 @@ public class CarsController : ControllerBase
     }
     
     [HttpGet("/{id}")]
+    [ProducesResponseType(typeof(GetByIdCarResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetByIdV1(Guid id)
     {
         var query = new GetByIdCarQuery(id);
@@ -53,5 +58,19 @@ public class CarsController : ControllerBase
         var summary = _mapper.Map<GetByIdCarResponse>(result);
 
         return Ok(summary);
+    }
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var command = new DeleteCarCommand(id);
+
+        var success = await _mediator.Send(command);
+
+        if (!success) return NotFound();
+        
+        return NoContent();
     }
 }

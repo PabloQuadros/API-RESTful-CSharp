@@ -48,9 +48,8 @@ public class CarRepository : ICarRepository
         //TODO Adicionar update no car
     }
 
-    public void Delete(Guid id)
+    public void Delete(Car car)
     {
-        var car = GetById(id);
-        if (car != null) _cars.Remove(car);
+        _cars.Remove(car);
     }
 }
