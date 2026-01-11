@@ -14,14 +14,13 @@ public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreateC
 
     public Task<CreateCarCommandResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
     {
-        var car = new Car(
-            request.Brand,
-            request.Model,
-            request.Color,
-            request.Year,
-            request.Currency,
-            request.Price
-        );
+        var car = new CarBuilder()
+            .WithBrand(request.Brand)
+            .WithModel(request.Model)
+            .WithYear(request.Year)
+            .WithColor(request.Color)
+            .WithPrice(request.Price, request.Currency)
+            .Build();
         
         _repository.Add(car);
 

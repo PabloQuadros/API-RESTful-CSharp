@@ -9,7 +9,24 @@ public class CarProfile : Profile
 {
     public CarProfile()
     {
-        CreateMap<Car, GetAllCarsQueryResponseDto>();
-        CreateMap<Car, GetByIdCarQueryResponse>();
+        CreateMap<Car, GetAllCarsQueryResponseDto>()
+            .ForMember(
+                dest => dest.Price,
+                opt => opt.MapFrom(src => src.Price.Amount)
+            )
+            .ForMember(
+                dest => dest.Currency,
+                opt => opt.MapFrom(src => src.Price.Currency)
+            );
+
+        CreateMap<Car, GetByIdCarQueryResponse>()
+            .ForMember(
+                dest => dest.Price,
+                opt => opt.MapFrom(src => src.Price.Amount)
+            )
+            .ForMember(
+                dest => dest.Currency,
+                opt => opt.MapFrom(src => src.Price.Currency)
+            );
     }
 }

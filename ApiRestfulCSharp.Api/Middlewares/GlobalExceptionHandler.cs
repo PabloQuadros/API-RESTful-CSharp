@@ -38,8 +38,8 @@ public class GlobalExceptionHandler : IExceptionHandler
             problemDetails.Extensions["errors"] = validationException.Errors
                 .Select(e => new 
                 { 
-                    Campo = e.PropertyName, 
-                    Mensagem = e.ErrorMessage 
+                    Field = e.PropertyName, 
+                    Message = e.ErrorMessage 
                 });
         }
 
