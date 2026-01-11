@@ -53,8 +53,6 @@ public class CarsController : ControllerBase
     
         var result = await _mediator.Send(query);
 
-        if (result == null) return NotFound();
-
         var summary = _mapper.Map<GetByIdCarResponse>(result);
 
         return Ok(summary);
@@ -67,9 +65,7 @@ public class CarsController : ControllerBase
     {
         var command = new DeleteCarCommand(id);
 
-        var success = await _mediator.Send(command);
-
-        if (!success) return NotFound();
+        await _mediator.Send(command);
         
         return NoContent();
     }

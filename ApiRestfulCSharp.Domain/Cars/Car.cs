@@ -1,4 +1,5 @@
 ﻿using ApiRestfulCSharp.Domain.Cars.ValueObjects;
+using ApiRestfulCSharp.Domain.Exceptions;
 
 namespace ApiRestfulCSharp.Domain.Cars;
 
@@ -27,25 +28,25 @@ public sealed class Car
     private void Validate()
     {
         if (string.IsNullOrWhiteSpace(Brand))
-            throw new ArgumentException("The brand is mandatory and cannot be empty.");
+            throw new DomainException("The brand is mandatory and cannot be empty.");
 
         if (string.IsNullOrWhiteSpace(Model))
-            throw new ArgumentException("The model is mandatory and cannot be empty.\n");
+            throw new DomainException("The model is mandatory and cannot be empty.\n");
 
         if (string.IsNullOrWhiteSpace(Color))
-            throw new ArgumentException("Color is mandatory.");
+            throw new DomainException("Color is mandatory.");
         
         if (Year < 1886 || Year > DateTime.Now.Year + 1)
-            throw new ArgumentException("The year must be later than 1886 and consistent with the current one.");    
+            throw new DomainException("The year must be later than 1886 and consistent with the current one.");    
         
         if (Price is null)
-            throw new ArgumentException("Price is mandatory.");
+            throw new DomainException("Price is mandatory.");
     }
 
     public void AdjustPrice(Money newPrice)
     {
         if (newPrice is null)
-            throw new ArgumentException("Price is mandatory.");
+            throw new DomainException("Price is mandatory.");
 
         var maxAllowedIncrease = Price.Amount * 1.5m;
 

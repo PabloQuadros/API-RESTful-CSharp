@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using ApiRestfulCSharp.Domain.Cars;
+using ApiRestfulCSharp.Domain.Exceptions;
+using AutoMapper;
 using MediatR;
 
 namespace ApiRestfulCSharp.Application.Cars.Queries.GetById;
@@ -18,7 +20,7 @@ public class GetByIdCarQueryHandler : IRequestHandler<GetByIdCarQuery, GetByIdCa
         GetByIdCarQuery request, 
         CancellationToken cancellationToken)
     {
-        var car = _repository.GetById(request.Id);
+        var car = _repository.GetById(request.Id) ?? throw NotFoundException.For<Car>(request.Id);
 
         var result = _mapper.Map<GetByIdCarQueryResponse>(car);
 

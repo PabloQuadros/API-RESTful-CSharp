@@ -13,9 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
+builder.Services.AddExceptionHandler<DomainExceptionHandler>();
+builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
+builder.Services.AddExceptionHandler<GlobalFallbackExceptionHandler>();
+
 builder.Services.AddProblemDetails();
 
 builder.Services.ConfigureOptions<ConfigureApiVersioningOptions>();

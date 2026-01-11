@@ -29,10 +29,9 @@ public class CarsController : ControllerBase
         var query = new GetByIdCarQuery(id);
     
         var result = await _mediator.Send(query);
-
-        if (result == null) return NotFound();
         
         var response  = _mapper.Map<GetByIdCarV2Response>(result);
+        
         return Ok(response);
     }
 }

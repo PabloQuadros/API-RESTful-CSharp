@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using ApiRestfulCSharp.Domain.Cars;
+using ApiRestfulCSharp.Domain.Exceptions;
+using MediatR;
 
 namespace ApiRestfulCSharp.Application.Cars.Commands.Delete;
 
@@ -13,9 +15,7 @@ public class DeleteCarCommandHandler : IRequestHandler<DeleteCarCommand, bool>
 
     public Task<bool> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
     {
-        var car = _repository.GetById(request.Id);
-
-        if (car == null) return Task.FromResult(false);
+        var car = _repository.GetById(request.Id) ?? throw NotFoundException.For<Car>(request.Id);
         
         _repository.Delete(car);
         

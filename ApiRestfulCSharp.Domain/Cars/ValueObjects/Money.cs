@@ -1,4 +1,5 @@
 using System;
+using ApiRestfulCSharp.Domain.Exceptions;
 
 namespace ApiRestfulCSharp.Domain.Cars.ValueObjects;
 
@@ -18,9 +19,9 @@ public sealed record Money
     private void Validate()
     {
         if (Amount < 0)
-            throw new ArgumentException("The amount cannot be negative.");
+            throw new DomainException("The amount cannot be negative.");
 
         if (string.IsNullOrWhiteSpace(Currency))
-            throw new ArgumentException("Currency is mandatory.");
+            throw new DomainException("Currency is mandatory.");
     }
 }

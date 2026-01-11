@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiRestfulCSharp.Api.Middlewares;
 
-public class GlobalExceptionHandler : IExceptionHandler
+public class ValidationExceptionHandler : IExceptionHandler
 {
-    private readonly ILogger<GlobalExceptionHandler> _logger;
+    private readonly ILogger<ValidationExceptionHandler> _logger;
 
-    public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+    public ValidationExceptionHandler(ILogger<ValidationExceptionHandler> logger)
     {
         _logger = logger;
     }
