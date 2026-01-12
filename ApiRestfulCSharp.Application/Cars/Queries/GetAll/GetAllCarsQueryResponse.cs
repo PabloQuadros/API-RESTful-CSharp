@@ -14,12 +14,13 @@ public class GetAllCarsQueryResponse : PaginatedResult<GetAllCarsQueryResponseDt
     }
 }
     
-public record GetAllCarsQueryResponseDto(
-    Guid Id, 
-    string Brand, 
-    string Model, 
-    string Color,
-    string Currency,
-    decimal Price, 
-    int Year
-);
+public record GetAllCarsQueryResponseDto()
+{
+    public Guid Id { get; init; }
+    public required string Brand { get; init; }
+    public required string Model { get; init; }
+    public required string Color { get; init; }
+    public required string Currency { get; init; }
+    public decimal Price { get; init; }
+    public int Year { get; init; }
+}

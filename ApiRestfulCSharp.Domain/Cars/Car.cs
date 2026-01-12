@@ -57,4 +57,13 @@ public sealed class Car
 
         Price = newPrice;
     }
+
+    public void Update(string brand, string model, string color, int year, Money price)
+    {
+        Brand = brand;
+        Model = model;
+        Color = color;
+        Year = year;
+        Price = price;
+    }
 }

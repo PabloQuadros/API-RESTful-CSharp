@@ -1,6 +1,7 @@
 ﻿using ApiRestfulCSharp.Api.Controllers.Cars.Requests;
 using ApiRestfulCSharp.Api.Controllers.Cars.Responses;
 using ApiRestfulCSharp.Application.Cars.Commands.Create;
+using ApiRestfulCSharp.Application.Cars.Commands.Update;
 using ApiRestfulCSharp.Application.Cars.Queries.GetById;
 using AutoMapper;
 
@@ -19,5 +20,7 @@ public class CarProfile : Profile
             ));
 
         CreateMap<GetByIdCarQueryResponse, GetByIdCarV2Response>();
+
+        CreateMap<UpdateCarRequest, UpdateCarCommand>();
     }
 }

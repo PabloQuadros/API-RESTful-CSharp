@@ -1,6 +1,9 @@
-﻿namespace ApiRestfulCSharp.Application.Cars.Queries.GetById;
+using System;
+using MediatR;
 
-public record GetByIdCarQueryResponse()
+namespace ApiRestfulCSharp.Application.Cars.Commands.Update;
+
+public sealed record UpdateCarCommand() : IRequest<Unit>
 {
     public Guid Id { get; init; }
     public required string Brand { get; init; }
@@ -10,3 +13,4 @@ public record GetByIdCarQueryResponse()
     public decimal Price { get; init; }
     public int Year { get; init; }
 }
+   
